@@ -7,7 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class SeleniumTask_1 {
+public class Practice1 {
 
     @Test
     public void ssLvTest() {

@@ -12,12 +12,12 @@ public class Practice2 {
 
     @Test
     public void ssCarTest() {
-//        Go to https://www.ss.com/lv/
         String driverPath = "C:\\JavaGuru\\Projects\\FirstGradle\\src\\test\\resources\\chromedriver.exe";
 
         System.setProperty("webdriver.chrome.driver", driverPath);
         ChromeDriver driver = new ChromeDriver();
 
+//        Go to https://www.ss.com/lv/
         driver.get("https://www.ss.com/lv/");
         driver.manage().window().maximize();
 
