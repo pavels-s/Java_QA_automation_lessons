@@ -1,12 +1,9 @@
-package Lecture8;
+package Lecture8.DogTest;
 
-import Lecture8.pages.BasePage;
-import Lecture8.pages.DogsPagePom;
-import Lecture8.pages.HomePagePom;
+import Lecture8.DogTest.pages.BasePage;
+import Lecture8.DogTest.pages.DogsPagePom;
+import Lecture8.DogTest.pages.HomePagePom;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

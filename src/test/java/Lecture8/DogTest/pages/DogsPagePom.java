@@ -1,6 +1,5 @@
-package Lecture8.pages;
+package Lecture8.DogTest.pages;
 
-import Lecture8.Task1;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.Select;
 
