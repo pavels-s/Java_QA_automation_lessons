@@ -27,10 +27,10 @@ public class Practice4 {
         driver.findElement(By.className("search-button")).click();
 
 //        Set min price 10
-        driver.findElement(By.xpath("/html/body/div[3]/div/div/div[2]/div[2]/div/div[1]/div[2]/div[1]/span[1]/span[2]/input")).sendKeys("10");
+        driver.findElement(By.xpath("//input[@placeholder='min']")).sendKeys("10");
 
 //        Set max price 20
-        driver.findElement(By.xpath("/html/body/div[3]/div/div/div[2]/div[2]/div/div[1]/div[2]/div[1]/span[1]/span[3]/input")).sendKeys("20");
+        driver.findElement(By.xpath("//input[@placeholder='max']")).sendKeys("20");
 
 //        Press ok
         driver.findElement(By.className("search-button")).click();
