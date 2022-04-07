@@ -12,9 +12,9 @@ public class CarsPagePom extends BasePage {
     private final By priceMin = By.id("f_o_8_min");
     private final By priceMax = By.id("f_o_8_max");
     private final By yearMin = By.id("f_o_18_min");
-    Select maxEngine = new Select(driver.findElement(By.id("f_o_15_max")));
-    Select carColor = new Select(driver.findElement(By.id("f_o_17")));
-    String carColorValue = driver.findElement(By.id("f_o_17")).getAttribute("value");
+    private final By maxEngine = By.id("f_o_15_max");
+    private final By carColor = By.id("f_o_17");
+    String carColorValue;
 
 
     public void validateUrl() {
@@ -28,8 +28,8 @@ public class CarsPagePom extends BasePage {
     }
 
     public void validatePrice(String min, String max) {
-        AssertionsForClassTypes.assertThat(priceMin).isEqualTo(min);
-        AssertionsForClassTypes.assertThat(priceMax).isEqualTo(max);
+        assertThat(driver.findElement(priceMin).getAttribute("value")).isEqualTo(min);
+        assertThat(driver.findElement(priceMax).getAttribute("value")).isEqualTo(max);
     }
 
     public void setYear(String year) {
@@ -43,14 +43,17 @@ public class CarsPagePom extends BasePage {
     }
 
     public void setEngineMax(String engine) {
-        maxEngine.selectByValue(engine);
+        Select maxEngineSelect = new Select(driver.findElement(maxEngine));
+        maxEngineSelect.selectByValue(engine);
     }
 
-    public void setColor(String color) {
-        carColor.selectByValue(color);
+    public void setColor(int colorIndex) {
+        Select carColorSelect = new Select(driver.findElement(carColor));
+        carColorSelect.selectByIndex(colorIndex);
     }
 
     public void checkColor(String color) {
+        carColorValue = driver.findElement(carColor).getAttribute("value");
         AssertionsForClassTypes.assertThat(carColorValue).isEqualTo(color);
     }
 

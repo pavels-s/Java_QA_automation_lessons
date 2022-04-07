@@ -18,8 +18,8 @@ public class TaskExecute extends BasePage {
         carsPagePom.setYear("2001");
         carsPagePom.validateYear("2001");
         carsPagePom.setEngineMax("3.0");
-        carsPagePom.setColor("Balta");
-        carsPagePom.checkColor("Balta");
+        carsPagePom.setColor(1);
+        carsPagePom.checkColor("6318");
         carsPagePom.submit();
         basePage.closeChrome();
 
