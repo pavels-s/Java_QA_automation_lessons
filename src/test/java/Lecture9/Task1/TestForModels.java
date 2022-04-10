@@ -1,4 +1,4 @@
-package Lecture9;
+package Lecture9.Task1;
 
 import Lecture9.Task1.pages.BasePage;
 import Lecture9.Task1.pages.PomPageModels;
