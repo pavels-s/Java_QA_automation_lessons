@@ -1,4 +1,4 @@
-package Lecture8.CarTest.Pages;
+package Lecture8.Task1_CarTest.Pages;
 
 import org.assertj.core.api.AssertionsForClassTypes;
 import org.openqa.selenium.By;

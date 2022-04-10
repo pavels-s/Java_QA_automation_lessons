@@ -1,4 +1,4 @@
-package Lecture8.Task_2_ForumCinema_Login.pages;
+package Lecture8.Task2_ForumCinemaLogin.pages;
 
 import org.openqa.selenium.By;
 
@@ -30,12 +30,7 @@ public class CinemaLoginPage extends CinemaBasePage {
         driver.findElement(submitButton).click();
     }
 
-    public boolean isLoginCompleted() {
-        try {
-            driver.findElement(profileButton);
-        } catch (NoSuchElementException e) {
-            return false;
-        }
-        return true;
+    public void enterProfile() {
+            driver.findElement(profileButton).click();
     }
 }

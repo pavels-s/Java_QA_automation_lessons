@@ -1,7 +1,7 @@
-package Lecture8.CarTest;
+package Lecture8.Task1_CarTest;
 
-import Lecture8.CarTest.Pages.BasePage;
-import Lecture8.CarTest.Pages.CarsPagePom;
+import Lecture8.Task1_CarTest.Pages.BasePage;
+import Lecture8.Task1_CarTest.Pages.CarsPagePom;
 import org.junit.Test;
 
 public class TaskExecute extends BasePage {

@@ -1,8 +1,8 @@
-package Lecture8.DogTest;
+package Lecture8.Task1_DogTest;
 
-import Lecture8.DogTest.pages.BasePage;
-import Lecture8.DogTest.pages.DogsPagePom;
-import Lecture8.DogTest.pages.HomePagePom;
+import Lecture8.Task1_DogTest.pages.BasePage;
+import Lecture8.Task1_DogTest.pages.DogsPagePom;
+import Lecture8.Task1_DogTest.pages.HomePagePom;
 import org.junit.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;

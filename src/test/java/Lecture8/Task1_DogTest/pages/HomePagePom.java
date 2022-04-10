@@ -1,4 +1,4 @@
-package Lecture8.DogTest.pages;
+package Lecture8.Task1_DogTest.pages;
 
 import org.openqa.selenium.By;
 

@@ -1,12 +1,12 @@
-package Lecture8.Task_2_ForumCinema_Login.pages;
+package Lecture8.Task1_CarTest.Pages;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
-public class CinemaBasePage {
+public class BasePage {
 
     public static ChromeDriver driver;
 
-    public void openChromeUrl(String url) {
+    public void openChromeByUrl(String url) {
         String driverPath = "C:\\JavaGuru\\Projects\\QA_automation\\src\\test\\resources\\chromedriver.exe";
         System.setProperty("webdriver.chrome.driver", driverPath);
         driver = new ChromeDriver();
@@ -14,5 +14,7 @@ public class CinemaBasePage {
         driver.manage().window().maximize();
     }
 
-    public void closeChrome() {driver.quit();}
+    public void closeChrome() {
+        driver.quit();
+    }
 }
