@@ -1,4 +1,4 @@
-package Lecture9.models;
+package Lecture9.Task1.pages;
 
 import org.openqa.selenium.chrome.ChromeDriver;
 
