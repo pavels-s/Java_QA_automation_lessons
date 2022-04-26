@@ -20,7 +20,8 @@ public class Test1a {
         homePagePom.validatePageUrl();
         homePagePom.searchByProduct();
         homePagePom.chooseCategory();
-        vacuumCleanerPagePom.sortByPopularity();
+        //vacuumCleanerPagePom.sortByPopularity();
+        vacuumCleanerPagePom.chooseProduct();
 
         sleep(1000);
     }
