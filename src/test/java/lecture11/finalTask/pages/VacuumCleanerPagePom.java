@@ -16,19 +16,20 @@ public class VacuumCleanerPagePom {
 
     public void sortByPopularity() {
         $(byClassName("ks-js-sort-desktop")).click();
-        sleep(3000);
-        $(byText("Populārākās preces")).scrollIntoView(true);
-
-        $(withText("Populārākās preces")).scrollTo().click();
+        sleep(1000);
+        $$(By.className("select2-results__option")).get(0).click();
    }
 
    public void chooseProduct() {
-
-        $(By.xpath("//a[@data-gtm-link='159116']")).scrollIntoView(true);
-        sleep(2000);
-       $(By.xpath("/html/body/div[1]/div[3]/div/div/div[2]/div[3]/div[2]/div[2]/div[1]/div[2]/a[2]")).click();
-//       List<WebElement> sameProducts = new List<>();
-//        sameProducts = $$(By.xpath("//a[@data-gtm-link='159116']"));
-
+       $$(By.className("ks-new-product-name")).get(1).scrollIntoView(true);
+       sleep(2000);
+       $$(By.xpath("//a[@data-gtm-link ='159116']")).get(1).click();
    }
+
+   public void addToCard() {
+        $(By.id("add_to_cart_btn")).submit();
+        sleep(2000);
+        $(By.xpath("//a[@class ='main-button']")).click();
+   }
+
 }
