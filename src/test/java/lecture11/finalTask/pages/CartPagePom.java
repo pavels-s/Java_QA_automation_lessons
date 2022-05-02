@@ -1,12 +1,16 @@
 package lecture11.finalTask.pages;
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.byClassName;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static org.assertj.core.api.Assertions.assertThat;
 
 public class CartPagePom {
+
+    private final By finalPrice = By.xpath("//span[@class = 'checkout-order-summary-total__price']");
 
     public void submitPurchase() {
         $(By.name("commit")).click();
@@ -45,6 +49,11 @@ public class CartPagePom {
 
     public void choosePayWithCash() {
         $(byText("Apmaksa saņemot preci")).click();
+    }
+
+    public void validatePrice() {
+        String priceValue = $(finalPrice).getText();
+        assertThat(priceValue).isEqualTo("599,00 €");
     }
 
 }

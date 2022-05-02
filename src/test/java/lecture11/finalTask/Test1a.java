@@ -34,6 +34,7 @@ public class Test1a {
         cartPagePom.enterPhoneNumber();
         cartPagePom.checkOut();
         cartPagePom.choosePayWithCash();
+        cartPagePom.validatePrice();
 
         sleep(3000);
     }
