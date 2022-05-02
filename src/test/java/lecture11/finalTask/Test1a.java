@@ -1,5 +1,6 @@
 package lecture11.finalTask;
 
+import lecture11.finalTask.pages.CartPagePom;
 import lecture11.finalTask.pages.HomePagePom;
 import lecture11.finalTask.pages.VacuumCleanerPagePom;
 import org.junit.Test;
@@ -12,6 +13,7 @@ public class Test1a {
 
     HomePagePom homePagePom = new HomePagePom();
     VacuumCleanerPagePom vacuumCleanerPagePom = new VacuumCleanerPagePom();
+    CartPagePom cartPagePom = new CartPagePom();
 
     @Test
     public void selenide1aTest() {
@@ -20,10 +22,19 @@ public class Test1a {
         homePagePom.validatePageUrl();
         homePagePom.searchByProduct();
         homePagePom.chooseCategory();
-        vacuumCleanerPagePom.sortByPopularity();
+        //vacuumCleanerPagePom.sortByPopularity();
         vacuumCleanerPagePom.chooseProduct();
         vacuumCleanerPagePom.addToCard();
+        cartPagePom.submitPurchase();
+        cartPagePom.enterEmailForPurchase();
+        cartPagePom.chooseCollectionAtOffice();
+        cartPagePom.chooseCityOfCollection();
+        cartPagePom.enterName();
+        cartPagePom.enterSurname();
+        cartPagePom.enterPhoneNumber();
+        cartPagePom.checkOut();
+        cartPagePom.choosePayWithCash();
 
-        sleep(1000);
+        sleep(3000);
     }
 }

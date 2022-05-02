@@ -5,6 +5,7 @@ import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,13 +17,15 @@ public class VacuumCleanerPagePom {
 
     public void sortByPopularity() {
         $(byClassName("ks-js-sort-desktop")).click();
-        sleep(1000);
-        $$(By.className("select2-results__option")).get(0).click();
+        $(By.xpath("//li[@class = 'select2-results__option select2-results__option--highlighted']")).scrollIntoView(true);
+        sleep(3000);
+        $(By.xpath("//li[@id = 'select2-yku7-result-wga3-[\"-inStock\",\"priceLoyalty\"]']")).click();
+        sleep(3000);
    }
 
    public void chooseProduct() {
-       $$(By.className("ks-new-product-name")).get(1).scrollIntoView(true);
-       sleep(2000);
+       $(By.xpath("//a[@data-gtm-link ='159116']")).scrollIntoView(true);
+       sleep(3000);
        $$(By.xpath("//a[@data-gtm-link ='159116']")).get(1).click();
    }
 
