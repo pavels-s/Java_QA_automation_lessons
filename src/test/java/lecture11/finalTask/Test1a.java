@@ -21,17 +21,18 @@ public class Test1a {
         homePagePom.searchByProduct("irobot");
         homePagePom.chooseVacuumCleanerCategory();
         vacuumCleanerPagePom.chooseProduct();
+        vacuumCleanerPagePom.setUpProductPrice();
         vacuumCleanerPagePom.addToCard();
         cartPagePom.submitPurchase();
-        cartPagePom.enterEmailForPurchase("example111@yahoo.com");
+        cartPagePom.enterEmailForPurchase();
         cartPagePom.chooseCollectionAtOffice();
         cartPagePom.chooseCityOfCollection();
-        cartPagePom.enterName("Ivan");
-        cartPagePom.enterSurname("Ivanov");
-        cartPagePom.enterPhoneNumber("26026262");
+        cartPagePom.enterName();
+        cartPagePom.enterSurname();
+        cartPagePom.enterPhoneNumber();
         cartPagePom.checkOut();
         cartPagePom.choosePayWithCash();
-        cartPagePom.validatePrice("599,00 €");
+        cartPagePom.validatePrice();
 
         sleep(3000);
     }

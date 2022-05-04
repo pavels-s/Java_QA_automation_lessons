@@ -2,42 +2,51 @@ package lecture11.finalTask.steps;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
+import lecture11.finalTask.pages.CartPagePom;
 
 public class CartPageSteps {
 
-    @And("Submit purchase, set product name and price")
+    CartPagePom cartPagePom = new CartPagePom();
+
+    @And("Submit purchase, set up product price")
     public void submitPurchaseSetProductNameAndPrice() {
+        cartPagePom.submitPurchase();
     }
 
-    @And("^Enter email (.*) for purchase$")
-    public void enterEmailForPurchase(String email) {
+    @And("Enter email for purchase")
+    public void enterEmailForPurchase() {
+        cartPagePom.enterEmailForPurchase();
     }
 
     @And("Choose collection at office")
     public void chooseCollectionAtOffice() {
-
+        cartPagePom.chooseCollectionAtOffice();
     }
 
-    @And("^Choose (.*) city to collect product$")
+    @And("Choose city to collect product")
     public void chooseCityToCollectProduct() {
-
+        cartPagePom.chooseCityOfCollection();
     }
 
-    @And("^Enter name (.*), surname (.*) and phone number(.*)$")
-    public void enterNameSurnameAndPhoneNumber(String name, String surname, String proneNumber) {
-
+    @And("Enter name, surname and phone number")
+    public void enterNameSurnameAndPhoneNumber() {
+        cartPagePom.enterName();
+        cartPagePom.enterSurname();
+        cartPagePom.enterPhoneNumber();
     }
 
     @Then("Checkout")
     public void checkout() {
-
+        cartPagePom.checkOut();
     }
 
     @And("Choose payment by cash")
     public void choosePaymentByCash() {
+        cartPagePom.choosePayWithCash();
     }
 
-    @And("^Validate that price is (.*)$")
-    public void validateThatPriceIs(String productPrice) {
+    @And("Validate final price")
+    public void validateThatPriceIs() {
+        cartPagePom.validatePrice();
     }
 }

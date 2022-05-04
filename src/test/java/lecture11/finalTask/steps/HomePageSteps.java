@@ -3,24 +3,29 @@ package lecture11.finalTask.steps;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
+import lecture11.finalTask.pages.HomePagePom;
 
 public class HomePageSteps {
+
+    HomePagePom homePagePom = new HomePagePom();
+
     @Given("^Open home page (.*)$")
-    public void openHomePage() {
-        
+    public void openHomePage(String homePageUrl) {
+        homePagePom.openHomePage(homePageUrl);
     }
 
-    @And("Validate that HomePage is open")
-    public void validateThatHomePageIsOpen() {
-        
+    @And("^Validate that (.*) is open$")
+    public void validateThatHomePageIsOpen(String homePageUrl) {
+        homePagePom.validatePageUrl(homePageUrl);
     }
 
     @When("^Enter product name (.*) into search and click search button$")
     public void enterProductNameIrobotIntoSearchAndClickSearchButton(String productName) {
-        
+        homePagePom.searchByProduct(productName);
     }
 
-    @And("Click on vacuum cleaner directory")
+    @And("Click on vacuum cleaner category")
     public void clickOnVacuumCleanerDirectory() {
+        homePagePom.chooseVacuumCleanerCategory();
     }
 }

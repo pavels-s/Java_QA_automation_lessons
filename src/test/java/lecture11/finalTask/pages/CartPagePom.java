@@ -1,5 +1,7 @@
 package lecture11.finalTask.pages;
 
+import lecture11.finalTask.models.CustomerModel;
+import lecture11.finalTask.models.ProductModel;
 import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selectors.*;
@@ -8,11 +10,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class CartPagePom {
 
+    CustomerModel customerModel = new CustomerModel();
+    ProductModel productModel = new ProductModel();
+
     private final By finalPrice = byXpath("//span[@class = 'checkout-order-summary-total__price']");
     private final By submitPurchaseButton = By.name("commit");
     private final By emailFields = byXpath("//input[@id = 'user_email']");
     private final By collectionAtOfficeButton = byClassName("title");
-    private final By collectionAtDaugavpils = byText("Kraujas iela 2, K SENUKAI Daugavpils");
+    private final By collectionAtDpilsOption = byText("Kraujas iela 2, K SENUKAI Daugavpils");
     private final By nameField = byId("address_first_name");
     private final By surnameField = byId("address_last_name");
     private final By customerPhoneNumberField = byId("address_phone_number");
@@ -23,8 +28,8 @@ public class CartPagePom {
         $(submitPurchaseButton).click();
     }
 
-    public void enterEmailForPurchase(String customerEmail) {
-        $$(emailFields).get(1).sendKeys(customerEmail);
+    public void enterEmailForPurchase() {
+        $$(emailFields).get(1).sendKeys(customerModel.getEmail());
         $$(emailFields).get(1).submit();
     }
 
@@ -33,19 +38,19 @@ public class CartPagePom {
     }
 
     public void chooseCityOfCollection() {
-        $(collectionAtDaugavpils).click();
+        $(collectionAtDpilsOption).click();
     }
 
-    public void enterName(String customerName) {
-        $(nameField).sendKeys(customerName);
+    public void enterName() {
+        $(nameField).sendKeys(customerModel.getName());
     }
 
-    public void enterSurname(String customerSurname) {
-        $(surnameField).sendKeys(customerSurname);
+    public void enterSurname() {
+        $(surnameField).sendKeys(customerModel.getSurname());
     }
 
-    public void enterPhoneNumber(String customerPhoneNumber) {
-        $(customerPhoneNumberField).sendKeys(customerPhoneNumber);
+    public void enterPhoneNumber() {
+        $(customerPhoneNumberField).sendKeys(customerModel.getPhoneNumber());
     }
 
     public void checkOut() {
@@ -58,9 +63,8 @@ public class CartPagePom {
         $(payWithCashButton).click();
     }
 
-    public void validatePrice(String productPrice) {
-        String priceValue = $(finalPrice).getText();
-        assertThat(priceValue).isEqualTo(productPrice);
+    public void validatePrice() {
+        assertThat($(finalPrice).getValue()).isEqualTo(productModel.getProductPrice());
     }
 
 }
