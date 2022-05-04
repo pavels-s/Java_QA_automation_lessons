@@ -1,59 +1,66 @@
 package lecture11.finalTask.pages;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
 
-import static com.codeborne.selenide.Selectors.byClassName;
-import static com.codeborne.selenide.Selectors.byText;
+import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CartPagePom {
 
-    private final By finalPrice = By.xpath("//span[@class = 'checkout-order-summary-total__price']");
+    private final By finalPrice = byXpath("//span[@class = 'checkout-order-summary-total__price']");
+    private final By submitPurchaseButton = By.name("commit");
+    private final By emailFields = byXpath("//input[@id = 'user_email']");
+    private final By collectionAtOfficeButton = byClassName("title");
+    private final By collectionAtDaugavpils = byText("Kraujas iela 2, K SENUKAI Daugavpils");
+    private final By nameField = byId("address_first_name");
+    private final By surnameField = byId("address_last_name");
+    private final By customerPhoneNumberField = byId("address_phone_number");
+    private final By checkOutButton = byText("Turpināt");
+    private final By payWithCashButton = byText("Apmaksa saņemot preci");
 
     public void submitPurchase() {
-        $(By.name("commit")).click();
+        $(submitPurchaseButton).click();
     }
 
-    public void enterEmailForPurchase() {
-        $$(By.xpath("//input[@id = 'user_email']")).get(1).sendKeys("example111@yahoo.com");
-        $$(By.xpath("//input[@id = 'user_email']")).get(1).submit();
+    public void enterEmailForPurchase(String customerEmail) {
+        $$(emailFields).get(1).sendKeys(customerEmail);
+        $$(emailFields).get(1).submit();
     }
 
     public void chooseCollectionAtOffice() {
-        $$(By.className("title")).get(1).click();
+        $$(collectionAtOfficeButton).get(1).click();
     }
 
     public void chooseCityOfCollection() {
-        $(byText("Kraujas iela 2, K SENUKAI Daugavpils")).click();
+        $(collectionAtDaugavpils).click();
     }
 
-    public void enterName() {
-        $(By.id("address_first_name")).sendKeys("Ivan");
+    public void enterName(String customerName) {
+        $(nameField).sendKeys(customerName);
     }
 
-    public void enterSurname() {
-        $(By.id("address_last_name")).sendKeys("Ivanov");
+    public void enterSurname(String customerSurname) {
+        $(surnameField).sendKeys(customerSurname);
     }
 
-    public void enterPhoneNumber() {
-        $(By.id("address_phone_number")).sendKeys("26041265");
+    public void enterPhoneNumber(String customerPhoneNumber) {
+        $(customerPhoneNumberField).sendKeys(customerPhoneNumber);
     }
 
     public void checkOut() {
-        $(byText("Turpināt")).click();
+        $(checkOutButton).click();
         sleep(2000);
-        $(byText("Turpināt")).click();
+        $(checkOutButton).click();
     }
 
     public void choosePayWithCash() {
-        $(byText("Apmaksa saņemot preci")).click();
+        $(payWithCashButton).click();
     }
 
-    public void validatePrice() {
+    public void validatePrice(String productPrice) {
         String priceValue = $(finalPrice).getText();
-        assertThat(priceValue).isEqualTo("599,00 €");
+        assertThat(priceValue).isEqualTo(productPrice);
     }
 
 }

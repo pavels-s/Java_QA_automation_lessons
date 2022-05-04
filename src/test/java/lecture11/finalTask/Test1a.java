@@ -7,7 +7,6 @@ import org.junit.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.sleep;
-import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
 
 public class Test1a {
 
@@ -17,24 +16,22 @@ public class Test1a {
 
     @Test
     public void selenide1aTest() {
-        open("https://www.1a.lv/");
-        getWebDriver().manage().window().maximize();
-        homePagePom.validatePageUrl();
-        homePagePom.searchByProduct();
-        homePagePom.chooseCategory();
-        //vacuumCleanerPagePom.sortByPopularity();
+        homePagePom.openHomePage("https://www.1a.lv/");
+        homePagePom.validatePageUrl("https://www.1a.lv/");
+        homePagePom.searchByProduct("irobot");
+        homePagePom.chooseVacuumCleanerCategory();
         vacuumCleanerPagePom.chooseProduct();
         vacuumCleanerPagePom.addToCard();
         cartPagePom.submitPurchase();
-        cartPagePom.enterEmailForPurchase();
+        cartPagePom.enterEmailForPurchase("example111@yahoo.com");
         cartPagePom.chooseCollectionAtOffice();
         cartPagePom.chooseCityOfCollection();
-        cartPagePom.enterName();
-        cartPagePom.enterSurname();
-        cartPagePom.enterPhoneNumber();
+        cartPagePom.enterName("Ivan");
+        cartPagePom.enterSurname("Ivanov");
+        cartPagePom.enterPhoneNumber("26026262");
         cartPagePom.checkOut();
         cartPagePom.choosePayWithCash();
-        cartPagePom.validatePrice();
+        cartPagePom.validatePrice("599,00 €");
 
         sleep(3000);
     }
